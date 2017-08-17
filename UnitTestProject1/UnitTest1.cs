@@ -21,7 +21,6 @@ namespace UnitTestProject1
             Assert.AreEqual(expectedResult, results);
         }
         [TestMethod]
-
         public void AddSoccerPlayer1()
         {
             //Array
@@ -36,7 +35,6 @@ namespace UnitTestProject1
             Assert.IsTrue(expectedResult == results);
         }
         [TestMethod]
-
         public void AddSoccerPlayer2()
         {
             //Arrange
@@ -48,13 +46,11 @@ namespace UnitTestProject1
             list.Add("Kaka");
             //Assert
             int expectedResults = 4;
-            int results = list.count;
+            int results = list.Count;
             Assert.AreEqual(expectedResults, results);
-
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-
         public void AddSoccerPlayer_ExceptionThrown()
         {
             //Arrange
@@ -68,7 +64,6 @@ namespace UnitTestProject1
             list.Add(1);
         }
         [TestMethod]
-
         public void RemoveSoccerPlayer()
         {
             //Arrange
@@ -88,7 +83,6 @@ namespace UnitTestProject1
             Assert.IsTrue(expectedResults == results);
         }
         [TestMethod]
-
         public void RemoveSoccerPlayer1()
         {
             //Arrange
@@ -109,7 +103,6 @@ namespace UnitTestProject1
             Assert.IsFalse(expectedResults == results);
         }
         [TestMethod]
-
         public void RemoveSoccerPlayer2()
         {
             //Arrange
@@ -131,7 +124,54 @@ namespace UnitTestProject1
             Assert.AreEqual(expectedResults, results);
         }
         [TestMethod]
+        public void ConvertToString()
+        {
+            //Arrange
+            CustomList<string> list = new CustomList<string>();
+            //Act
+            list.Add("Kaka");
+            list.Add("Ibrahimovic");
+            list.Add("Neymar");
+            //Assert
+            string expectedResults = "KakaIbrahimovicNeymar";
+            string results = list.ToString();
+            Assert.AreEqual(expectedResults, results);          
+        }
+        [TestMethod]
+        public void RemoveIbrahimovicToString()
+        {
+            //Arrange
+            CustomList<string> list = new CustomList<string>();
+            //Act
+            list.Add("Kaka");
+            list.Add("Ibrahimovic");
+            list.Add("Neymar");
 
+            list.Remove("Ibrahimovic");
+            //Assert
+            string expectedResults = "KakaNeymar";
+            string results = list.ToString();
+            Assert.IsTrue(expectedResults == results);
+        }
+        [TestMethod]
+        public void RemoveIbrahimovicAddRonaldoToString()
+        {
+            //Arrange
+            CustomList<string> list = new CustomList<string>();
+            //Act
+            list.Add("Kaka");
+            list.Add("Ibrahimovic");
+            list.Add("Neymar");
+
+            list.Remove("Ibrahimovic");
+
+            list.Add("Ronaldo");
+            //Assert
+            string expectedResults = "KakaNeymarRonaldo";
+            string results = list.ToString();
+            Assert.AreEqual(expectedResults, results);
+        }
+        [TestMethod]
         public void ToOverLoadPlusOperator()
         {
             //Arrange
@@ -153,7 +193,6 @@ namespace UnitTestProject1
             Assert.AreEqual(expectedResults, results);
         }
         [TestMethod]
-
         public void ToOverLoadPlusOperator1()
         {
             //Arrange
@@ -169,14 +208,13 @@ namespace UnitTestProject1
             Two.Add("Kaka");
             Two.Add("Ibrahimovic");
             Two.Add("Neymar");
-            Results = One + Two
+            Results = One + Two;
             //Assert
             string expectedResults = "Pique";
             string results = One[3];
             Assert.AreEqual(expectedResults, results);
         }
         [TestMethod]
-
         public void ToOverLoadPlusOperator2()
         {
             //Arrange
@@ -221,7 +259,6 @@ namespace UnitTestProject1
             Assert.IsTrue(expectedResults == results);
         }
         [TestMethod]
-
         public void ToOverLoadMinusOperatorWithRonaldoBeingInBothLists()
         {
             //Arrange
@@ -243,7 +280,6 @@ namespace UnitTestProject1
             Assert.IsTrue(expetedResults == results);
         }
         [TestMethod]
-
         public void ToOverLoadMinusOperatorRemoveIbrahimovic()
         {
             //Arrange
@@ -265,10 +301,8 @@ namespace UnitTestProject1
             Assert.IsTrue(expetedResults == results);
         }
         [TestMethod]
-
         public void ZipCustomListOneWithCustomListTwo()
         {
-            {
                 //Arrange
                 CustomList<string> One = new CustomList<string>;
                 CustomList<string> Two = new CustomList<string>;
@@ -281,7 +315,7 @@ namespace UnitTestProject1
                 One.Add("Ricardo");
                 One.Add("Zlatan");
                 One.Add("Santos");
-                One.Add("Luis")
+                One.Add("Luis");
 
                 Two.Add("Messi");
                 Two.Add("Ronaldo");
@@ -296,13 +330,10 @@ namespace UnitTestProject1
                 string expetedResults = "Lionel";
                 string results = Results[0];
                 Assert.IsTrue(expetedResults == results);
-            }
         }
         [TestMethod]
-
         public void ZipCustomListOneWithCustomListTwo_Count()
         {
-            {
                 //Arrange
                 CustomList<string> One = new CustomList<string>;
                 CustomList<string> Two = new CustomList<string>;
@@ -333,10 +364,8 @@ namespace UnitTestProject1
             }
         }
         [TestMethod]
-
         public void ZipCustomListOneWithCustomListTwoRemoveChristianoRonaldo()
         {
-            {
                 //Arrange
                 CustomList<string> One = new CustomList<string>;
                 CustomList<string> Two = new CustomList<string>;
@@ -349,7 +378,7 @@ namespace UnitTestProject1
                 One.Add("Ricardo");
                 One.Add("Zlatan");
                 One.Add("Santos");
-                One.Add("Luis")
+                One.Add("Luis");
 
                 Two.Add("Messi");
                 Two.Add("Ronaldo");
@@ -365,6 +394,5 @@ namespace UnitTestProject1
                 string results = Results[3];
                 Assert.AreEqual(expetedResults, results);
             }
-        }
-    }
+       }
 }
