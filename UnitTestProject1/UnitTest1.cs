@@ -36,8 +36,8 @@ namespace UnitTestProject1
             Assert.IsTrue(expectedResult == results);
         }
         [TestMethod]
-        
-         public void AddSoccerPlayer2()
+
+        public void AddSoccerPlayer2()
         {
             //Arrange
             CustomList<string> list = new CustomList<string>();
@@ -54,7 +54,7 @@ namespace UnitTestProject1
         }
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        
+
         public void AddSoccerPlayer_ExceptionThrown()
         {
             //Arrange
@@ -88,7 +88,7 @@ namespace UnitTestProject1
             Assert.IsTrue(expectedResults == results);
         }
         [TestMethod]
-        
+
         public void RemoveSoccerPlayer1()
         {
             //Arrange
@@ -132,7 +132,7 @@ namespace UnitTestProject1
         }
         [TestMethod]
 
-        public void ToOverRideOperator()
+        public void ToOverLoadPlusOperator()
         {
             //Arrange
             CustomList<string> One = new CustomList<string>;
@@ -145,7 +145,7 @@ namespace UnitTestProject1
 
             Two.Add("Kaka");
             Two.Add("Ibrahimovic");
-            Two.Add("Neymar");            
+            Two.Add("Neymar");
             Results = One + Two;
             //Assert
             string expectedResults = "Ibrahimovic";
@@ -153,7 +153,54 @@ namespace UnitTestProject1
             Assert.AreEqual(expectedResults, results);
         }
         [TestMethod]
-            public void ToOverRideOperator1()
+
+        public void ToOverLoadPlusOperator1()
+        {
+            //Arrange
+            CustomList<string> One = new CustomList<string>;
+            CustomList<string> Two = new CustomList<string>;
+            CustomList<string> Results = new CustomList<string>;
+            //Act
+            One.Add("Messi");
+            One.Add("Ronaldo");
+            One.Add("Beckham");
+            One.Add("Pique");
+
+            Two.Add("Kaka");
+            Two.Add("Ibrahimovic");
+            Two.Add("Neymar");
+            Results = One + Two
+            //Assert
+            string expectedResults = "Pique";
+            string results = One[3];
+            Assert.AreEqual(expectedResults, results);
+        }
+        [TestMethod]
+
+        public void ToOverLoadPlusOperator2()
+        {
+            //Arrange
+            CustomList<string> One = new CustomList<string>;
+            CustomList<string> Two = new CustomList<string>;
+            CustomList<string> Results = new CustomList<string>;
+            //Act
+            One.Add("Messi");
+            One.Add("Ronaldo");
+            One.Add("Beckham");
+            One.Add("Pique");
+
+            Two.Add("Kaka");
+            Two.Add("Ibrahimovic");
+            Two.Add("Neymar");
+            Two.Add("Suarez");
+            Results = One + Two
+            //Assert
+            string expectedResults = Results[7];
+            string results = "Suarez";
+            Assert.AreEqual(expectedResults, results);
+        }
+        [TestMethod]
+        public void ToOverLoadMinusOperator()
         {
             //Arrange
             CustomList<string> One = new CustomList<string>;
@@ -175,7 +222,7 @@ namespace UnitTestProject1
         }
         [TestMethod]
 
-        public void ToOverRideOperator2()
+        public void ToOverLoadMinusOperatorWithRonaldoBeingInBothLists()
         {
             //Arrange
             CustomList<string> One = new CustomList<string>;
@@ -191,10 +238,133 @@ namespace UnitTestProject1
             Two.Add("Ronaldo");
             Results = One - Two;
             //Assert
-            string expetedResults = One[1];
-            string results = "Beckham";
-            Assert.IsFalse()
+            string expetedResults = "Beckham";
+            string results = Results[1];
+            Assert.IsTrue(expetedResults == results);
+        }
+        [TestMethod]
 
+        public void ToOverLoadMinusOperatorRemoveIbrahimovic()
+        {
+            //Arrange
+            CustomList<string> One = new CustomList<string>;
+            CustomList<string> Two = new CustomList<string>;
+            CustomList<string> Results = new CustomList<string>;
+            //Act
+            One.Add("Ibrahimovic");
+            One.Add("Ronaldo");
+            One.Add("Beckham");
+
+            Two.Add("Kaka");
+            Two.Add("Ibrahimovic");
+            Two.Add("Neymar");
+            Results = Two - One;
+            //Assert
+            string expetedResults = "Neymar";
+            string results = Results[1];
+            Assert.IsTrue(expetedResults == results);
+        }
+        [TestMethod]
+
+        public void ZipCustomListOneWithCustomListTwo()
+        {
+            {
+                //Arrange
+                CustomList<string> One = new CustomList<string>;
+                CustomList<string> Two = new CustomList<string>;
+                CustomList<string> Results;
+                //Act
+                One.Add("Lionel");
+                One.Add("Christiano");
+                One.Add("David");
+                One.Add("Gerard");
+                One.Add("Ricardo");
+                One.Add("Zlatan");
+                One.Add("Santos");
+                One.Add("Luis")
+
+                Two.Add("Messi");
+                Two.Add("Ronaldo");
+                Two.Add("Beckham");
+                Two.Add("Pique");
+                Two.Add("Kaka");
+                Two.Add("Ibrahimovic");
+                Two.Add("Neymar");
+                Two.Add("Suarez");
+                Results = One.Zip(Two);
+                //Assert
+                string expetedResults = "Lionel";
+                string results = Results[0];
+                Assert.IsTrue(expetedResults == results);
+            }
+        }
+        [TestMethod]
+
+        public void ZipCustomListOneWithCustomListTwo_Count()
+        {
+            {
+                //Arrange
+                CustomList<string> One = new CustomList<string>;
+                CustomList<string> Two = new CustomList<string>;
+                CustomList<string> Results;
+                //Act                
+                One.Add("Lionel");
+                One.Add("Christiano");
+                One.Add("David");
+                One.Add("Gerard");
+                One.Add("Ricardo");
+                One.Add("Zlatan");
+                One.Add("Santos");
+                One.Add("Luis");
+
+                Two.Add("Messi");
+                Two.Add("Ronaldo");
+                Two.Add("Beckham");
+                Two.Add("Pique");
+                Two.Add("Kaka");
+                Two.Add("Ibrahimovic");
+                Two.Add("Neymar");
+                Two.Add("Suarez");
+                Results = One.Zip(Two);
+                //Assert
+                int expetedResults = 14;
+                int results = Results.Count;
+                Assert.AreEqual(expetedResults, results);
+            }
+        }
+        [TestMethod]
+
+        public void ZipCustomListOneWithCustomListTwoRemoveChristianoRonaldo()
+        {
+            {
+                //Arrange
+                CustomList<string> One = new CustomList<string>;
+                CustomList<string> Two = new CustomList<string>;
+                CustomList<string> Results;
+                //Act
+                One.Add("Lionel");
+                One.Add("Christiano");
+                One.Add("David");
+                One.Add("Gerard");
+                One.Add("Ricardo");
+                One.Add("Zlatan");
+                One.Add("Santos");
+                One.Add("Luis")
+
+                Two.Add("Messi");
+                Two.Add("Ronaldo");
+                Two.Add("Beckham");
+                Two.Add("Pique");
+                Two.Add("Kaka");
+                Two.Add("Ibrahimovic");
+                Two.Add("Neymar");
+                Two.Add("Suarez");
+                Results = One.Zip(Two);
+                //Assert
+                string expetedResults = "Ronaldo";
+                string results = Results[3];
+                Assert.AreEqual(expetedResults, results);
+            }
         }
     }
 }
