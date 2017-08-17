@@ -10,12 +10,10 @@ namespace UnitTestProject1
         public void AddSoccerPlayer()
         {
             //Arrange
-            SoccerList<string> list = new SoccerList<string>();
-
+            CustomList<string> list = new CustomList<string>();
             //Act
-            list.Insert("Messi");
-            list.Insert("Ronaldo");
-
+            list.Add("Messi");
+            list.Add("Ronaldo");
             //Assert
             string expectedResult = "Messi";
             string results = list[0];
@@ -26,13 +24,11 @@ namespace UnitTestProject1
         public void AddSoccerPlayer1()
         {
             //Array
-            SoccerList<string> list = new SoccerList<string>();
-
+            CustomList<string> list = new CustomList<string>();
             //Act 
             list.Add("Messi");
             list.Add("Ronaldo");
             list.Add("Beckham");
-
             //Assert
             string expectedResult = "Beckham";
             string results = list[2];
@@ -43,14 +39,12 @@ namespace UnitTestProject1
          public void AddSoccerPlayer2()
         {
             //Arrange
-            SoccerList<string> list = new SoccerList<string>
-
+            CustomList<string> list = new CustomList<string>();
             //Act
             list.Add("Messi");
             list.Add("Ronaldo");
             list.Add("Beckham");
             list.Add("Kaka");
-
             //Assert
             int expectedResults = 4;
             int results = list.count;
@@ -58,12 +52,28 @@ namespace UnitTestProject1
 
         }
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        
+        public void AddSoccerPlayer_ExceptionThrown()
+        {
+            //Arrange
+            CustomList<string> list = new CustomList<string>();
+            //Act
+            list.Add("Messi");
+            list.Add("Ronaldo");
+            list.Add("Beckham");
+            list.Add("Kaka");
+
+            list.Add(1);
+
+
+        }
+        [TestMethod]
 
         public void RemoveSoccerPlayer()
         {
             //Arrange
-            SoccerList<string> list = new SoccerList<string>;
-
+            CustomList<string> list = new CustomList<string>();
             //Act
             list.Add("Messi");
             list.Add("Ronaldo");
@@ -73,7 +83,6 @@ namespace UnitTestProject1
             list.Add("Neymar");
 
             list.Remove("Ronaldo");
-
             //Assert
             string expectedResults = "Beckham";
             string results = list[1];
@@ -84,7 +93,7 @@ namespace UnitTestProject1
         public void RemoveSoccerPlayer1()
         {
             //Arrange
-            SoccerList<string> list = new SoccerList<string>;
+            CustomList<string> list = new CustomList<string>();
             //Act
             list.Add("Messi");
             list.Add("Ronaldo");
@@ -96,7 +105,7 @@ namespace UnitTestProject1
             list.Remove("Beckham");
             list.Remove("Ibrahimovic");
             //Assert
-            string expectedResults = "Beckham";
+            string expectedResults = "Kaka";
             string results = list[2];
             Assert.IsFalse(expectedResults == results);
         }
@@ -105,7 +114,7 @@ namespace UnitTestProject1
         public void RemoveSoccerPlayer2()
         {
             //Arrange
-            SoccerList<string> list = new SoccerList<string>;
+            CustomList<string> list = new CustomList<string>();
             //Act
             list.Add("Messi");
             list.Add("Ronaldo");
