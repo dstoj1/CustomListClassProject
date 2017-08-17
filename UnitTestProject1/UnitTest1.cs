@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CustomListClassProject1;
 
 namespace UnitTestProject1
 {
@@ -65,8 +66,6 @@ namespace UnitTestProject1
             list.Add("Kaka");
 
             list.Add(1);
-
-
         }
         [TestMethod]
 
@@ -130,6 +129,72 @@ namespace UnitTestProject1
             int expectedResults = 3;
             int results = list.Count;
             Assert.AreEqual(expectedResults, results);
+        }
+        [TestMethod]
+
+        public void ToOverRideOperator()
+        {
+            //Arrange
+            CustomList<string> One = new CustomList<string>;
+            CustomList<string> Two = new CustomList<string>;
+            CustomList<string> Results = new CustomList<string>;
+            //Act
+            One.Add("Messi");
+            One.Add("Ronaldo");
+            One.Add("Beckham");
+
+            Two.Add("Kaka");
+            Two.Add("Ibrahimovic");
+            Two.Add("Neymar");            
+            Results = One + Two;
+            //Assert
+            string expectedResults = "Ibrahimovic";
+            string results = Results[4];
+            Assert.AreEqual(expectedResults, results);
+        }
+        [TestMethod]
+            public void ToOverRideOperator1()
+        {
+            //Arrange
+            CustomList<string> One = new CustomList<string>;
+            CustomList<string> Two = new CustomList<string>;
+            CustomList<string> Results = new CustomList<string>;
+            //Act
+            One.Add("Messi");
+            One.Add("Ronaldo");
+            One.Add("Beckham");
+
+            Two.Add("Kaka");
+            Two.Add("Ibrahimovic");
+            Two.Add("Ronaldo");
+            Results = One - Two;
+            //Assert
+            string expectedResults = "Messi";
+            string results = Results[0];
+            Assert.IsTrue(expectedResults == results);
+        }
+        [TestMethod]
+
+        public void ToOverRideOperator2()
+        {
+            //Arrange
+            CustomList<string> One = new CustomList<string>;
+            CustomList<string> Two = new CustomList<string>;
+            CustomList<string> Results = new CustomList<string>;
+            //Act
+            One.Add("Messi");
+            One.Add("Ronaldo");
+            One.Add("Beckham");
+
+            Two.Add("Kaka");
+            Two.Add("Ibrahimovic");
+            Two.Add("Ronaldo");
+            Results = One - Two;
+            //Assert
+            string expetedResults = One[1];
+            string results = "Beckham";
+            Assert.IsFalse()
+
         }
     }
 }
