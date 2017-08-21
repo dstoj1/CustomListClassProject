@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListClassProject1
 {
-    public class CustomList<T> //: //IEnumerable<T>
+    public class CustomList<T> :IEnumerable<T>
     {
         public T[] data = new T[5];
         public int count = 0;
@@ -35,6 +36,7 @@ namespace CustomListClassProject1
             {
                 data[count] = item;
                 count++;
+                Console.WriteLine(item);
                 return;
             }
             else if (capcity == count)
@@ -43,9 +45,7 @@ namespace CustomListClassProject1
             }
             for (int index = 0; index < count; index++)
             {
-                tempArray[index] = data[0];
-
-                //count++;
+                tempArray[index] = data[index];
             }
             tempArray[count] = item;
             count++;
@@ -53,26 +53,43 @@ namespace CustomListClassProject1
         }
         public bool Remove(T item)
         {
-            int index;             
+            int index;
+            bool isFound = false;
             T[] tempArray = new T[count + 1];
-            T[] removeArray = new T[count + 1];
-            for (index = 0; index < count; index++)
-            {//Go through tempArray    
-                //if (index = item)
-                //{
-                //    removeArray(index) = data[0];
-                //}//if index  doesnt match then add to new Array
-                //else
-                //{
-                //    tempArray[index] = data[0];
-                //}
+            T[] nonRemoveArray = new T[count - 1];
+            for (index = 0; index < data.Length; index++)
+            {   
+                if (data[index].Equals(item))
+                {
+                    tempArray[index] = data[0];
+                    count--;
+                    isFound = true;
+                    continue;
+                }
+                else if(isFound)
+                {
+                    nonRemoveArray[index -1] = data[index];
+                    continue;                                   
+                }
+                else
+                {
+                    nonRemoveArray[index] = data[index];
+                }
 
             }
-            tempArray[count] = item;
-            removeArray[count] = item;
-            data = tempArray;
-            return false;
-            //do I need to add capacity to the new Array???
-        }    
+
+            data = nonRemoveArray;
+            return isFound;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return ((IEnumerable<T>)data).GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable<T>)data).GetEnumerator();
+        }
     }
 }

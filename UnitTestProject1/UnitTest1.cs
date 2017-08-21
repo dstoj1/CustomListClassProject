@@ -49,24 +49,23 @@ namespace UnitTestProject1
             int results = list.count;
             Assert.AreEqual(expectedResults, results);
         }
-    }
-}
-   /*     [TestMethod]
-        [ExpectedException(typeof(ArgumentException))]
-        public void AddSoccerPlayer_ExceptionThrown()
-        {
-            //Arrange
-            CustomList<string> list = new CustomList<string>();
-            //Act
-            list.Add("Messi");
-            list.Add("Ronaldo");
-            list.Add("Beckham");
-            list.Add("Kaka");
 
-            list.Add(1);
-        }
-*/
-   /*     [TestMethod]
+        /*    [TestMethod]
+             [ExpectedException(typeof(ArgumentException))]
+             public void AddSoccerPlayer_ExceptionThrown()
+             {
+                 //Arrange
+                 CustomList<string> list = new CustomList<string>();
+                 //Act
+                 list.Add("Messi");
+                 list.Add("Ronaldo");
+                 list.Add("Beckham");
+                 list.Add("Kaka");
+
+                 list.Add(1);
+             }
+     */
+        [TestMethod]
         public void RemoveSoccerPlayer()
         {
             //Arrange
@@ -103,7 +102,7 @@ namespace UnitTestProject1
             //Assert
             string expectedResults = "Kaka";
             string results = list[2];
-            Assert.IsFalse(expectedResults == results);
+            Assert.IsTrue(expectedResults == results);
         }
         [TestMethod]
         public void RemoveSoccerPlayer2()
@@ -126,7 +125,9 @@ namespace UnitTestProject1
             int results = list.count;
             Assert.AreEqual(expectedResults, results);
         }
-        [TestMethod]
+    }
+}
+  /*      [TestMethod]
         public void ConvertToString()
         {
             //Arrange

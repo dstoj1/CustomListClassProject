@@ -10,9 +10,20 @@ namespace CustomListClassProject1
     {
         static void Main(string[] args)
         {
+
             CustomList<string> list = new CustomList<string>();
+            list.Add("Messi");
             list.Add("Ronaldo");
-            Console.ReadLine();        
+            list.Add("Beckham");
+            list.Add("Kaka");
+            list.Add("Ibrahimovic");
+
+            list.Remove("Ronaldo");
+            for (int index = 0; index < list.count; index++)
+            {
+                Console.WriteLine(list[index]);
+            }
+            Console.ReadKey();
         }
     }
 }
