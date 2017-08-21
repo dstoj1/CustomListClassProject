@@ -10,7 +10,9 @@ namespace CustomListClassProject1
     {
         static void Main(string[] args)
         {
-
+            CustomList<string> list = new CustomList<string>();
+            list.Add("Ronaldo");
+            Console.ReadLine();        
         }
     }
 }
