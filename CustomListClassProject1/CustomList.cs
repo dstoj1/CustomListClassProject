@@ -81,6 +81,10 @@ namespace CustomListClassProject1
             data = nonRemoveArray;
             return isFound;
         }
+        public override string ToString()
+        {
+            return " " + " ";  
+        }
 
         public IEnumerator<T> GetEnumerator()
         {

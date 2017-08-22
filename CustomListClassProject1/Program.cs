@@ -21,9 +21,9 @@ namespace CustomListClassProject1
             list.Remove("Ronaldo");
             for (int index = 0; index < list.count; index++)
             {
-                Console.WriteLine(list[index]);
+              Console.WriteLine(list[index]);
             }
-            Console.ReadKey();
+              Console.ReadKey();
         }
     }
 }
