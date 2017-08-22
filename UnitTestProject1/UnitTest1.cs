@@ -125,9 +125,7 @@ namespace UnitTestProject1
             int results = list.count;
             Assert.AreEqual(expectedResults, results);
         }
-    }
-}
-  /*      [TestMethod]
+        [TestMethod]
         public void ConvertToString()
         {
             //Arrange
@@ -139,7 +137,7 @@ namespace UnitTestProject1
             //Assert
             string expectedResults = "KakaIbrahimovicNeymar";
             string results = list.ToString();
-            Assert.AreEqual(expectedResults, results);          
+            Assert.AreEqual(expectedResults, results);
         }
         [TestMethod]
         public void RemoveIbrahimovicToString()
@@ -190,7 +188,7 @@ namespace UnitTestProject1
             Two.Add("Kaka");
             Two.Add("Ibrahimovic");
             Two.Add("Neymar");
-            Results =  One + Two;
+            Results = One + Two;
             //Assert
             string expectedResults = "Ibrahimovic";
             string results = Results[4];
@@ -235,7 +233,7 @@ namespace UnitTestProject1
             Two.Add("Ibrahimovic");
             Two.Add("Neymar");
             Two.Add("Suarez");
-            Results = One + Two
+            Results = One + Two;    
             //Assert
             string expectedResults = Results[7];
             string results = "Suarez";
@@ -305,98 +303,98 @@ namespace UnitTestProject1
             Assert.IsTrue(expetedResults == results);
         }
         [TestMethod]
-        public void ZipCustomListOneWithCustomListTwo()
+        public void ToZipCustomListOneWithCustomListTwo()
         {
-                //Arrange
-                CustomList<string> One = new CustomList<string>();
-                CustomList<string> Two = new CustomList<string>();
-                CustomList<string> Results;
-                //Act
-                One.Add("Lionel");
-                One.Add("Christiano");
-                One.Add("David");
-                One.Add("Gerard");
-                One.Add("Ricardo");
-                One.Add("Zlatan");
-                One.Add("Santos");
-                One.Add("Luis");
+            //Arrange
+            CustomList<string> One = new CustomList<string>();
+            CustomList<string> Two = new CustomList<string>();
+            CustomList<string> Results;
+            //Act
+            One.Add("Lionel");
+            One.Add("Christiano");
+            One.Add("David");
+            One.Add("Gerard");
+            One.Add("Ricardo");
+            One.Add("Zlatan");
+            One.Add("Santos");
+            One.Add("Luis");
 
-                Two.Add("Messi");
-                Two.Add("Ronaldo");
-                Two.Add("Beckham");
-                Two.Add("Pique");
-                Two.Add("Kaka");
-                Two.Add("Ibrahimovic");
-                Two.Add("Neymar");
-                Two.Add("Suarez");
-                Results = One.Zip(Two);
-                //Assert
-                string expetedResults = "Lionel";
-                string results = Results[0];
-                Assert.IsTrue(expetedResults == results);
+            Two.Add("Messi");
+            Two.Add("Ronaldo");
+            Two.Add("Beckham");
+            Two.Add("Pique");
+            Two.Add("Kaka");
+            Two.Add("Ibrahimovic");
+            Two.Add("Neymar");
+            Two.Add("Suarez");
+            Results = One.Zip(Two);
+            //Assert
+            string expetedResults = "Lionel";
+            string results = Results[0];
+            Assert.IsTrue(expetedResults == results);
         }
         [TestMethod]
-        public void ZipCustomListOneWithCustomListTwo_Count()
+        public void ToZipCustomListOneWithCustomListTwo_Count()
         {
-                //Arrange
-                CustomList<string> One = new CustomList<string>();
-                CustomList<string> Two = new CustomList<string>();
-                CustomList<string> Results;
-                //Act                
-                One.Add("Lionel");
-                One.Add("Christiano");
-                One.Add("David");
-                One.Add("Gerard");
-                One.Add("Ricardo");
-                One.Add("Zlatan");
-                One.Add("Santos");
-                One.Add("Luis");
+            //Arrange
+            CustomList<string> One = new CustomList<string>();
+            CustomList<string> Two = new CustomList<string>();
+            CustomList<string> Results;
+            //Act                
+            One.Add("Lionel");
+            One.Add("Christiano");
+            One.Add("David");
+            One.Add("Gerard");
+            One.Add("Ricardo");
+            One.Add("Zlatan");
+            One.Add("Santos");
+            One.Add("Luis");
 
-                Two.Add("Messi");
-                Two.Add("Ronaldo");
-                Two.Add("Beckham");
-                Two.Add("Pique");
-                Two.Add("Kaka");
-                Two.Add("Ibrahimovic");
-                Two.Add("Neymar");
-                Two.Add("Suarez");
-                Results = One.Zip(Two);
-                //Assert
-                int expetedResults = 14;
-                int results = Results.count;
-                Assert.AreEqual(expetedResults, results);
-            }
+            Two.Add("Messi");
+            Two.Add("Ronaldo");
+            Two.Add("Beckham");
+            Two.Add("Pique");
+            Two.Add("Kaka");
+            Two.Add("Ibrahimovic");
+            Two.Add("Neymar");
+            Two.Add("Suarez");
+            Results = One.Zip(Two);
+            //Assert
+            int expetedResults = 14;
+            int results = Results.count;
+            Assert.AreEqual(expetedResults, results);
         }
-        [TestMethod]
-        public void ZipCustomListOneWithCustomListTwoRemoveChristianoRonaldo()
-        {
-                //Arrange
-                CustomList<string> One = new CustomList<string>();
-                CustomList<string> Two = new CustomList<string>();
-                CustomList<string> Results;
-                //Act
-                One.Add("Lionel");
-                One.Add("Christiano");
-                One.Add("David");
-                One.Add("Gerard");
-                One.Add("Ricardo");
-                One.Add("Zlatan");
-                One.Add("Santos");
-                One.Add("Luis");
+    }
+    [TestMethod]
+    public void ToZipCustomListOneWithCustomListTwoRemoveChristianoRonaldo()
+    {
+        //Arrange
+        CustomList<string> One = new CustomList<string>();
+        CustomList<string> Two = new CustomList<string>();
+        CustomList<string> Results;
+        //Act
+        One.Add("Lionel");
+        One.Add("Christiano");
+        One.Add("David");
+        One.Add("Gerard");
+        One.Add("Ricardo");
+        One.Add("Zlatan");
+        One.Add("Santos");
+        One.Add("Luis");
 
-                Two.Add("Messi");
-                Two.Add("Ronaldo");
-                Two.Add("Beckham");
-                Two.Add("Pique");
-                Two.Add("Kaka");
-                Two.Add("Ibrahimovic");
-                Two.Add("Neymar");
-                Two.Add("Suarez");
-                Results = One.Zip(Two);
-                //Assert
-                string expetedResults = "Ronaldo";
-                string results = Results[3];
-                Assert.AreEqual(expetedResults, results);
-            }
-            */
+        Two.Add("Messi");
+        Two.Add("Ronaldo");
+        Two.Add("Beckham");
+        Two.Add("Pique");
+        Two.Add("Kaka");
+        Two.Add("Ibrahimovic");
+        Two.Add("Neymar");
+        Two.Add("Suarez");
+        Results = One.Zip(Two);
+        //Assert
+        string expetedResults = "Ronaldo";
+        string results = Results[3];
+        Assert.AreEqual(expetedResults, results);
+    }
+}
 

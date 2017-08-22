@@ -17,13 +17,14 @@ namespace CustomListClassProject1
             list.Add("Beckham");
             list.Add("Kaka");
             list.Add("Ibrahimovic");
+            Console.ReadKey();
 
-            list.Remove("Ronaldo");
-            for (int index = 0; index < list.count; index++)
-            {
-              Console.WriteLine(list[index]);
-            }
-              Console.ReadKey();
+      //      list.Remove("Ronaldo");
+       //     for (int index = 0; index < list.count; index++)
+        //    {
+        //      Console.WriteLine(list[index]);
+        //    }
+         //     Console.ReadKey();
         }
     }
 }

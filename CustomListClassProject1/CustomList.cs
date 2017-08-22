@@ -85,6 +85,33 @@ namespace CustomListClassProject1
         {
             return " " + " ";  
         }
+        public void overloadPlusOperator(T item)
+        {
+            T[] tempArray = new T[count + 1];
+            if (capcity > count)
+            {
+                data[count] = item;
+                count++;
+                Console.WriteLine(item);
+                return;
+            }
+            else if (capcity == count)
+            {
+                capcity += 4;
+            }
+            for (int index = 0; index < count; index++)
+            {
+                tempArray[index] = data[index];
+            }
+            tempArray[count] = item;
+            count++;
+            data = tempArray;
+
+        }
+        public void zip()
+        {
+
+        }
 
         public IEnumerator<T> GetEnumerator()
         {
